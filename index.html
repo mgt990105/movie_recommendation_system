@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation</title>
+</head>
+<body>
+    <h1>Movie Recommendation</h1>
+    <form id="movieForm">
+        <label for="movieName">Enter Movie Name:</label>
+        <input type="text" id="movieName" name="movieName">
+        <button type="submit">Get Recommendation</button>
+    </form>
+    <div id="recommendation"></div>
+
+    <script>
+        document.getElementById('movieForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:5000/recommend_movie');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    document.getElementById('recommendation').innerHTML = "<h2>Recommendation:</h2>" + response.recommendation;
+                } else {
+                    console.error('Request failed. Status:', xhr.status);
+                }
+            };
+            xhr.send(formData);
+        });
+    </script>
+</body>
+</html>
