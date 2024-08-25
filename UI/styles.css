@@ -1,0 +1,321 @@
+html,
+body {
+  height: 100%;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  background-color: rgb(224, 228, 235);
+  padding-bottom: 50px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgb(37, 37, 37);
+  position: fixed; /* Changed to fixed for better scrolling behavior */
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000; /* Ensures header stays on top */
+}
+
+header ul {
+  display: flex;
+}
+
+header li {
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+#page-logo a {
+  padding: 5px;
+  /* font-family: "Oleo Script", sans-serif; */
+  color: #6d5dfc;
+  font-size: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+#page-logo a:hover {
+  color: #bb4fff; /* Change color on hover */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+header nav a {
+  color: #bb4fff;
+  text-decoration: none;
+  font-size: 17px;
+  padding: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+header nav a:hover {
+  color: #6d5dfc;
+  /* background-color: #bb4fff; */
+}
+
+.menu-button {
+  display: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 99;
+  background-color: rgba(101, 97, 97, 0.715);
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: none;
+}
+
+.sidebar li {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.sidebar a {
+  width: 100%;
+}
+
+#hero {
+  height: 800px;
+  background-image: url("images/test.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative; /* Added for positioning overlay */
+  /* background: rgba(0, 0, 0, 0.5); Dark overlay */
+  z-index: 1;
+}
+
+#movieForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center; /* Center elements horizontally */
+  justify-content: center; /* Optional: Center elements vertically */
+  width: 900px;
+  height: 200px;
+  background-color: rgba(51, 47, 47, 0.8);
+  box-shadow: 2px 4px 8px rgb(68, 67, 67);
+  padding: 50px 0;
+  margin: auto;
+  position: relative;
+  top: 200px;
+  z-index: 2; /* Ensures form stays on top of overlay */
+}
+
+#movieForm label {
+  color: white;
+  text-transform: capitalize;
+  font-size: 30px;
+  font-family: "Raleway", sans-serif;
+  /* margin: 0; */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#movieForm span {
+  color: white;
+  font-style: italic;
+  /* text-transform: capitalize; */
+  font-size: 10px;
+  font-family: sans-serif;
+  /* margin: 0; */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#movieForm input {
+  padding: 12px 20px;
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  color: #333; /* Darker text for contrast */
+  /* color: #b3b0b0; Darker text for contrast */
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 500px;
+  height: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#movieForm input::placeholder {
+  color: #999;
+  opacity: 1; /* Ensures placeholder color is consistent */
+}
+
+input[type="text"]:focus {
+  border-color: #6d5dfc; /* Primary purple color */
+  box-shadow: 0 4px 8px rgba(109, 93, 252, 0.2); /* Purple glow on focus */
+}
+
+#movieForm button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #6d5dfc, #bb4fff);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#movieForm button:hover {
+  background: linear-gradient(135deg, #5c4bdb, #a04eea);
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#recommendation-text {
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 25px;
+}
+
+#recommendation-text h2 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+#recommendation-text span {
+  color: #5c4bdb;
+}
+
+#input-movie img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 300px; */
+  height: 280px;
+  object-fit: contain;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  background-color: #f3f1f1;
+  border-radius: 8px; /* Increased border radius for a softer look */
+  border: 2px;
+  border-style: solid;
+  border-color: #a04eea;
+}
+
+#distance-explainer {
+  width: 80%;
+  margin-top: 100px;
+  text-align: center;
+  align-items: center; /* Center elements horizontally */
+  font-size: 15px;
+  margin: 25px auto;
+}
+
+#distance-explainer span {
+  color: #5c4bdb;
+  font-weight: bold;
+}
+
+#results {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#results ul {
+  height: 400px;
+  margin: 25px;
+  display: grid;
+  grid-column: span;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  margin-bottom: 25px;
+  /* text-align: center; */
+  align-items: center; /*Center elements horizontally */
+  justify-content: center; /*Optional: Center elements vertically*/
+}
+
+#results ul span {
+  font-family: "Raleway", sans-serif;
+}
+
+#results ul span:nth-of-type(2) {
+  font-size: 12px;
+  padding: 5px;
+  color: #6d5dfc;
+}
+
+#results ul li {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  /* align-items: center; Center elements horizontally */
+  justify-content: center; /* Optional: Center elements vertically */
+  background-color: white;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  background-color: #f3f1f1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px; /* Increased border radius for a softer look */
+  margin-left: 10px;
+}
+
+#results ul li:nth-last-child(2) {
+  grid-column: 2 / 3;
+}
+
+#results ul li:last-child {
+  grid-column: 3 / 4;
+}
+
+#results ul li img {
+  width: 300px;
+  height: 280px;
+  object-fit: contain;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+#results ul li:hover {
+  transform: scale(1.05); /* Enlarge the image to 105% of its original size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for emphasis */
+}
+
+#recommendation {
+  margin-bottom: 20px;
+}
