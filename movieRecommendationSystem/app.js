@@ -9,12 +9,12 @@ function outputMovies(event) {
   event.preventDefault();
   var formData = new FormData(this);
   var xhr = new XMLHttpRequest();
-  // xhr.open("POST", "http://localhost:5000/recommend_movie"); //testing out
+  // xhr.open("POST", "http://localhost:5001/recommend_movie"); //testing out
   xhr.open("POST", "/api/recommend_movie");
   xhr.onload = function () {
     var response = JSON.parse(xhr.responseText);
-    console.log(response);
-    console.log(typeof response);
+    // console.log(response);
+    // console.log(typeof response);
     if (response === "No Results") {
       distanceExplainer.style.display = "none";
       recommendationResults.style.display = "none";
@@ -54,9 +54,23 @@ function outputMovies(event) {
       behavior: "smooth",
     });
 
+    let inputMovieFileName = sortedKeys[0].toLowerCase().replace(/ /g, "_");
+
+    // Initialize the variable for the modified movieFileName
+    let inputMovieFileNameWithEntity;
+
+    // Check if the movieFileName contains an apostrophe
+    if (inputMovieFileName.includes("'")) {
+      // Replace the apostrophe with the HTML entity
+      inputMovieFileNameWithEntity = inputMovieFileName.replace(/'/g, "&#39;");
+    } else {
+      // If no apostrophe is present, keep the movieFileName unchanged
+      inputMovieFileNameWithEntity = inputMovieFileName;
+    }
+
     inputMovie.innerHTML =
       "<img src='images/movie-posters/" +
-      sortedKeys[0].toLowerCase().replace(/ /g, "_") +
+      inputMovieFileNameWithEntity +
       ".jpg'>";
 
     recommendationText.innerHTML =
@@ -78,11 +92,25 @@ function outputMovies(event) {
       // Convert movieTitle to lowercase and replace spaces with underscores for the image path
       let movieFileName = movieTitle.toLowerCase().replace(/ /g, "_");
 
+      // Initialize the variable for the modified movieFileName
+      let movieFileNameWithEntity;
+
+      // Check if the movieFileName contains an apostrophe
+      if (movieFileName.includes("'")) {
+        // Replace the apostrophe with the HTML entity
+        movieFileNameWithEntity = movieFileName.replace(/'/g, "&#39;");
+      } else {
+        // If no apostrophe is present, keep the movieFileName unchanged
+        movieFileNameWithEntity = movieFileName;
+      }
+
+      // console.log(encodedMovieFileName);
+
       // Construct the list item with the dynamic image path and separated spans
       recommendationResults.innerHTML +=
         "<li>" +
         "<img src='images/movie-posters/" +
-        movieFileName +
+        movieFileNameWithEntity +
         ".jpg'>" +
         "<span>" +
         movieTitle +
@@ -92,6 +120,7 @@ function outputMovies(event) {
         "</span>" +
         "</li>";
     }
+    // console.log(recommendationResults.innerHTML);
 
     // for (var movieIndex in sortedKeys) {
     //   recommendationResults.innerHTML +=
