@@ -1,0 +1,171 @@
+html,
+body {
+  height: 100%;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  background-color: rgb(224, 228, 235);
+  padding-bottom: 50px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgb(48, 48, 48);
+  position: fixed; /* Changed to fixed for better scrolling behavior */
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1000; /* Ensures header stays on top */
+}
+
+header ul {
+  display: flex;
+}
+
+header li {
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+#page-logo a {
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(183, 230, 235);
+  font-size: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
+}
+#cinema-logo {
+  width: 30px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 0px; /* Space between logo and icon */
+  vertical-align: middle;
+}
+
+/* #page-logo a:hover {
+  color: #bb4fff; /* Change color on hover */
+/* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
+/* } */
+
+header nav a {
+  color: rgb(183, 230, 235); /* Main text color */
+  text-decoration: none; /* Remove underline */
+  font-size: 17px; /* Font size */
+  padding: 12px 20px; /* Adjust padding for better spacing */
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); Subtle text shadow for depth */
+  border-radius: 8px; /* Increased border-radius for a softer look */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+header nav a:hover {
+  color: rgb(48, 48, 48);
+  background-color: rgb(183, 230, 235);
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 8px rgba(109, 93, 252, 0.2); /* Add shadow for depth */
+}
+
+.menu-button {
+  display: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 99;
+  background-color: rgba(101, 97, 97, 0.715);
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: none;
+}
+
+.sidebar li {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.sidebar a {
+  width: 100%;
+}
+
+main ul {
+  width: 80%;
+  margin: 10% auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+main ul li {
+  display: flex;
+  height: auto;
+  justify-content: left;
+  background-color: white;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+main li img {
+  width: 300px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.item-content {
+  height: 260px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: rgb(54, 54, 54);
+}
+
+.item-content p {
+  font-size: 18px;
+}
+
+.bold-text {
+  margin-top: 40px;
+  font-weight: bold;
+  color: rgb(67, 144, 154);
+}
+
+.actions {
+  text-align: right;
+}
+
+.actions a {
+  text-decoration: none;
+  font-weight: 700;
+  color: rgb(7, 172, 172);
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.actions a:hover {
+  background-color: rgb(235, 253, 255);
+}

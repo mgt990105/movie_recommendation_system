@@ -9,8 +9,8 @@ function outputMovies(event) {
   event.preventDefault();
   var formData = new FormData(this);
   var xhr = new XMLHttpRequest();
-  // xhr.open("POST", "http://localhost:5001/recommend_movie"); //testing out
-  xhr.open("POST", "/api/recommend_movie");
+  xhr.open("POST", "http://localhost:5001/recommend_movie"); //testing out
+  // xhr.open("POST", "/api/recommend_movie");
   xhr.onload = function () {
     var response = JSON.parse(xhr.responseText);
     // console.log(response);
@@ -23,8 +23,20 @@ function outputMovies(event) {
       resultsSection.style.color = "#5c4bdb";
       recommendationText.style.marginTop = "50px";
 
-      recommendationText.innerHTML =
-        "<h2> Oops! There are no recommendations for this movie at the moment</h2>";
+      recommendationText.innerHTML = `
+      <h2>Oops! There are no recommendations for this movie at the moment</h2>
+      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3Vxam5md2IzdGE1ZGI4MnF2bmhoZjZ4d2tkdGhvcjd2eTRoMTQ5ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rvDtLCABDMaqY/giphy.gif" alt="Humorous GIF" style="max-width: 100%; height: auto; margin-top: 30px">
+  `;
+      // recommendationText.scrollIntoView({
+      //   behavior: "smooth",
+      // });
+
+      // Adjust the scroll position a little more
+      window.scrollBy({
+        top: 2000, // Adjust this value for more or less scrolling
+        behavior: "smooth",
+      });
+
       return;
     }
 
@@ -112,12 +124,39 @@ function outputMovies(event) {
         "<img src='images/movie-posters/" +
         movieFileNameWithEntity +
         ".jpg'>" +
+        // Movie title
+        "<div style='margin-bottom: 5px;'>" +
         "<span>" +
         movieTitle +
         "</span>" +
+        "</div>" +
+        // Distance
+        "<div class= 'distance' style='margin-bottom: 5px;'>" +
         "<span>Distance: " +
         distance +
         "</span>" +
+        "</div>" +
+        // Icons tray
+        "<div style='display: flex; gap: 10px; margin-bottom: 5px;'>" +
+        // Google Icon
+        "<a href='https://www.google.com/search?q=" +
+        encodeURIComponent(movieTitle) +
+        "' target='_blank'>" +
+        "<img src='images/icons/google_icon.png' alt='Google' style='width:18px;height:18px;'>" +
+        "</a>" +
+        // YouTube Icon
+        "<a href='https://www.youtube.com/results?search_query=" +
+        encodeURIComponent(movieTitle) +
+        "' target='_blank'>" +
+        "<img src='images/icons/youtube_icon.png' alt='YouTube' style='width:18px;height:18px;'>" +
+        "</a>" +
+        // IMDb Icon
+        "<a href='https://www.imdb.com/find?q=" +
+        encodeURIComponent(movieTitle) +
+        "' target='_blank'>" +
+        "<img src='images/icons/imdb_icon.png' alt='IMDb' style='width:18px;height:18px;'>" +
+        "</a>" +
+        "</div>" +
         "</li>";
     }
     // console.log(recommendationResults.innerHTML);

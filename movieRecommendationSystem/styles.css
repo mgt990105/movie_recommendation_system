@@ -23,7 +23,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-color: rgb(37, 37, 37);
+  background-color: rgb(48, 48, 48);
   position: fixed; /* Changed to fixed for better scrolling behavior */
   top: 0;
   width: 100%;
@@ -41,32 +41,43 @@ header li {
 }
 
 #page-logo a {
-  padding: 5px;
-  /* font-family: "Oleo Script", sans-serif; */
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
   color: #6d5dfc;
   font-size: 30px;
   text-decoration: none;
   text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  vertical-align: middle;
+  /* text-shadow: 1px 1px 2px rgb(0, 0, 0); */
+}
+
+#cinema-logo {
+  width: 30px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 0px; /* Space between logo and icon */
+  vertical-align: middle;
 }
 
 #page-logo a:hover {
   color: #bb4fff; /* Change color on hover */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
 }
 
 header nav a {
-  color: #bb4fff;
-  text-decoration: none;
-  font-size: 17px;
-  padding: 12px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  color: #bb4fff; /* Main text color */
+  text-decoration: none; /* Remove underline */
+  font-size: 17px; /* Font size */
+  padding: 12px 20px; /* Adjust padding for better spacing */
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); Subtle text shadow for depth */
+  border-radius: 8px; /* Increased border-radius for a softer look */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Smooth transition */
 }
 
 header nav a:hover {
-  color: #6d5dfc;
-  /* background-color: #bb4fff; */
+  color: #fff; /* Change text color on hover */
+  background-color: #6d5dfc; /* Background color on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 8px rgba(109, 93, 252, 0.2); /* Add shadow for depth */
 }
 
 .menu-button {
@@ -102,13 +113,15 @@ header nav a:hover {
 }
 
 #hero {
-  height: 800px;
-  background-image: url("images/test.jpg");
+  /* height: 800px; */
+  height: 100vh;
+  background-image: url("backgroundPicture/main_picture_1.jpg");
   background-position: center;
   background-size: cover;
   position: relative; /* Added for positioning overlay */
   /* background: rgba(0, 0, 0, 0.5); Dark overlay */
   z-index: 1;
+  overflow: hidden; /* Prevents overflow */
 }
 
 #movieForm {
@@ -247,7 +260,10 @@ input[type="text"]:focus {
 }
 
 #results {
-  display: none;
+  display: none; /* Initially hidden; adjust as needed */
+  margin-top: 0; /* No margin to allow #results to appear right after #hero */
+  margin-top: 0; /* Ensure no margin above */
+  padding: 0; /* Remove any padding */
 }
 
 .container {

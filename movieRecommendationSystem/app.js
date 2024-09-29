@@ -23,8 +23,20 @@ function outputMovies(event) {
       resultsSection.style.color = "#5c4bdb";
       recommendationText.style.marginTop = "50px";
 
-      recommendationText.innerHTML =
-        "<h2> Oops! There are no recommendations for this movie at the moment</h2>";
+      recommendationText.innerHTML = `
+      <h2>Oops! There are no recommendations for this movie at the moment</h2>
+      <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3Vxam5md2IzdGE1ZGI4MnF2bmhoZjZ4d2tkdGhvcjd2eTRoMTQ5ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rvDtLCABDMaqY/giphy.gif" alt="Humorous GIF" style="max-width: 100%; height: auto; margin-top: 30px">
+  `;
+      // recommendationText.scrollIntoView({
+      //   behavior: "smooth",
+      // });
+
+      // Adjust the scroll position a little more
+      window.scrollBy({
+        top: 400, // Adjust this value for more or less scrolling
+        behavior: "smooth",
+      });
+
       return;
     }
 

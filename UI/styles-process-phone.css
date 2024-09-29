@@ -1,0 +1,55 @@
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+  #page-logo a {
+    padding: 5px;
+    /* font-family: "Oleo Script", sans-serif; */
+    color: #6d5dfc;
+    font-size: 20px;
+    margin-left: 0;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  main ul {
+    width: 80%;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+
+  main ul li {
+    height: 740px;
+    display: block;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  main li img {
+    width: 400px;
+    height: 200px;
+    object-fit: cover;
+    align-items: center;
+  }
+
+  .item-content {
+    height: 50px; /* Allow content to adjust height */
+    padding: 10px; /* Less padding */
+  }
+
+  .item-content p {
+    font-size: 16px; /* Smaller font size */
+  }
+
+  .bold-text {
+    margin-top: 20px; /* Less margin for mobile */
+  }
+}
